@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C Sharp\\Class Libraries\\DLMS_Business\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AA61A789-6204-4086-9EF2-1BC1E31DF15D}|DLMS_Business\\DLMS_Business.csproj|d:\\c sharp\\class libraries\\dlms_business\\dlms_business\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA61A789-6204-4086-9EF2-1BC1E31DF15D}|DLMS_Business\\DLMS_Business.csproj|solutionrelative:dlms_business\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\C Sharp\\Class Libraries\\DLMS_Business\\DLMS_Business\\Class1.cs",
+              "RelativeDocumentMoniker": "DLMS_Business\\Class1.cs",
+              "ToolTip": "D:\\C Sharp\\Class Libraries\\DLMS_Business\\DLMS_Business\\Class1.cs",
+              "RelativeToolTip": "DLMS_Business\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T09:38:00.78Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 228,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

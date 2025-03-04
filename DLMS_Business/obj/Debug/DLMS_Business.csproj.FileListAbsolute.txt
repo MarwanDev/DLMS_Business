@@ -1,0 +1,9 @@
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\bin\Debug\DLMS_Business.dll
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\bin\Debug\DLMS_Business.pdb
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\bin\Debug\DLMS_DataAccess.dll
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\bin\Debug\DLMS_DataAccess.pdb
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\obj\Debug\DLMS_Business.csproj.AssemblyReference.cache
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\obj\Debug\DLMS_Business.csproj.CoreCompileInputs.cache
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\obj\Debug\DLMS_Bus.389A8D3B.Up2Date
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\obj\Debug\DLMS_Business.dll
+D:\C Sharp\Class Libraries\DLMS_Business\DLMS_Business\obj\Debug\DLMS_Business.pdb
