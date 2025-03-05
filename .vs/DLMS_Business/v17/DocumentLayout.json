@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\C Sharp\\Class Libraries\\DLMS_Business\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA61A789-6204-4086-9EF2-1BC1E31DF15D}|DLMS_Business\\DLMS_Business.csproj|d:\\c sharp\\class libraries\\dlms_business\\dlms_business\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA61A789-6204-4086-9EF2-1BC1E31DF15D}|DLMS_Business\\DLMS_Business.csproj|solutionrelative:dlms_business\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C Sharp\\Class Libraries\\DLMS_Business\\DLMS_Business\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DLMS_Business\\Class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,10 +28,8 @@
               "RelativeDocumentMoniker": "DLMS_Business\\Class1.cs",
               "ToolTip": "D:\\C Sharp\\Class Libraries\\DLMS_Business\\DLMS_Business\\Class1.cs",
               "RelativeToolTip": "DLMS_Business\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T09:38:00.78Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T09:38:00.78Z"
             }
           ]
         },

@@ -67,7 +67,7 @@ namespace DLMS_Business
         public static DataTable FilterPeople(string filterMode, string filterkeyWord)
         {
             PersonData.CurrentFilterMode = (PersonData.FilterMode)Enum.Parse(typeof(PersonData.FilterMode), filterMode);
-            return PersonData.FilterPeople(filterkeyWord);
+            return PersonData.GetFilteredPeople(filterkeyWord);
         }
 
         private bool AddNewPerson()

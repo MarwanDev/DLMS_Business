@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using DLMS_DataAccess;
 
 namespace DLMS_Business
@@ -90,6 +91,34 @@ namespace DLMS_Business
         public static bool DoesUserExist(int id)
         {
             return UserData.DoesUserExist(id);
+        }
+
+        public static DataTable FilterUsers(string filterMode, string filterKeyWord)
+        {
+            UserData.CurrentFilterMode = (UserData.FilterMode)Enum.Parse(typeof(UserData.FilterMode), filterMode);
+            return UserData.GetFilteredUsers(filterKeyWord);
+        }
+
+        public static int GetAllUsersCount()
+        {
+            return UserData.GetAllUsersCount();
+        }
+
+        public static int GetFilteredUsersCount(string filterkeyWord)
+        {
+            return UserData.GetFilteredUsersCount(filterkeyWord);
+        }
+
+        public static void ApplySorting(string sortingParameter)
+        {
+            UserData.IsSortingUsed = true;
+            UserData.SortingText = sortingParameter;
+            UserData.ApplySorting();
+        }
+
+        public static void DisableSorting()
+        {
+            UserData.IsSortingUsed = false;
         }
     }
 }
