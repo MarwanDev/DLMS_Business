@@ -102,6 +102,24 @@ namespace DLMS_Business
                 return null;
         }
 
+        public static Person FindByNationalNo(string nationalNo)
+        {
+            int id = -1;
+            string firstName = "", secondName = "", thirdName = "", lastName = "", email = "", phone = "", address = "", imagePath = "", country = "";
+            DateTime dateOfBirth = DateTime.Now;
+            byte gender = 0;
+            int nationalityCountryID = -1;
+            if (PersonData.GetPersonInfoByNationalNo(ref id, ref firstName, ref secondName, ref thirdName, ref lastName, nationalNo,
+                ref dateOfBirth, ref gender, ref email, ref phone, ref address, ref nationalityCountryID, ref imagePath, ref country))
+            {
+                return new Person(id, firstName, secondName, thirdName, lastName, nationalNo,
+                    email, phone, address, dateOfBirth, gender,
+                    nationalityCountryID, imagePath, country);
+            }
+            else
+                return null;
+        }
+
         public bool Save()
         {
             switch (CurrentMode)

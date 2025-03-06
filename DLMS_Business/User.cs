@@ -58,6 +58,17 @@ namespace DLMS_Business
                 return null;
         }
 
+        public static User FindByPersonId(int personId)
+        {
+            int id = -1;
+            string userName = "", password = "";
+            bool isActive = false;
+            if (UserData.GetUserDataByPersonId(ref id, ref userName, ref password, ref isActive, personId))
+                return new User(id, personId, userName, password, isActive);
+            else
+                return null;
+        }
+
         public bool Save()
         {
             switch (CurrentMode)
