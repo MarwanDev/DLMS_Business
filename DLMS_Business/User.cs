@@ -89,6 +89,11 @@ namespace DLMS_Business
             return false;
         }
 
+        public static string GetUserPassword(int userId)
+        {
+            return UserData.GetUserPassword(userId);
+        }
+
         public static bool DeleteUser(int id)
         {
             return UserData.DeleteUser(id);
