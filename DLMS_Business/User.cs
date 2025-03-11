@@ -69,6 +69,11 @@ namespace DLMS_Business
                 return null;
         }
 
+        public static bool ChangePassword(int id, string password)
+        {
+            return UserData.ChangeUserPassword(id, password);
+        }
+
         public bool Save()
         {
             switch (CurrentMode)
