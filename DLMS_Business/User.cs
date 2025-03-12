@@ -69,6 +69,16 @@ namespace DLMS_Business
                 return null;
         }
 
+        public static User FindByAuth(string username, string password)
+        {
+            int id = -1, personId = -1;
+            bool isActive = false;
+            if (UserData.GetUserDataByAuthentication(username, password, ref id, ref isActive, ref personId))
+                return new User(id, personId, username, password, isActive);
+            else
+                return null;
+        }
+
         public static bool ChangePassword(int id, string password)
         {
             return UserData.ChangeUserPassword(id, password);
