@@ -1,6 +1,7 @@
 ﻿using DLMS_DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,23 @@ namespace DLMS_Business
                 return new ApplicationType(id, title, fees);
             else
                 return null;
+        }
+
+        public static int GetAllApplicationTypesCount()
+        {
+            return ApplicationTypeData.GetAllApplicationTypesCount();
+        }
+
+        public static void ApplySorting(string sortingParameter)
+        {
+            ApplicationTypeData.IsSortingUsed = true;
+            ApplicationTypeData.SortingText = sortingParameter;
+            ApplicationTypeData.ApplySorting();
+        }
+
+        public static DataTable GetAllApplicationTypes()
+        {
+            return ApplicationTypeData.GetAllApplicationTypes();
         }
     }
 }
