@@ -11,7 +11,7 @@ namespace DLMS_Business
     public class ApplicationType
     {
         public int ID { set; get; }
-        public double Fees { set; get; }
+        public decimal Fees { set; get; }
         public string Title { set; get; }
 
         public ApplicationType()
@@ -21,14 +21,19 @@ namespace DLMS_Business
             this.Title = "";
         }
 
-        private ApplicationType(int id, string title, double fees)
+        private ApplicationType(int id, string title, decimal fees)
         {
             ID = id;
             Title = title;
             Fees = fees;
         }
 
-        public bool UpdateApplicationType()
+        public bool Save()
+        {
+            return UpdateApplicationType();
+        }
+
+        private bool UpdateApplicationType()
         {
             return ApplicationTypeData.UpdateApplicationType(ID, Title, Fees);
         }
@@ -36,8 +41,8 @@ namespace DLMS_Business
         public static ApplicationType Find(int id)
         {
             string title = "";
-            double fees = 0;
-            if (ApplicationTypeData.GetApplicationTypeById(id, ref title, ref fees))
+            decimal fees = -1;
+            if (ApplicationTypeData.GetApplicationTypeDataById(id, ref title, ref fees))
                 return new ApplicationType(id, title, fees);
             else
                 return null;
