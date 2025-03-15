@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DLMS_Business
 {
-    public class ApplicationType
+    public class ApplicationType : Business
     {
         public int ID { set; get; }
         public decimal Fees { set; get; }
@@ -51,13 +51,6 @@ namespace DLMS_Business
         public static int GetAllApplicationTypesCount()
         {
             return ApplicationTypeData.GetAllApplicationTypesCount();
-        }
-
-        public static void ApplySorting(string sortingParameter)
-        {
-            ApplicationTypeData.IsSortingUsed = true;
-            ApplicationTypeData.SortingText = sortingParameter;
-            ApplicationTypeData.ApplySorting();
         }
 
         public static DataTable GetAllApplicationTypes()

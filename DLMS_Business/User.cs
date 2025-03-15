@@ -4,7 +4,7 @@ using DLMS_DataAccess;
 
 namespace DLMS_Business
 {
-    public class User
+    public class User : Business
     {
         public enum Mode { AddNew = 0, Update = 1 };
         public Mode CurrentMode = Mode.AddNew;
@@ -138,18 +138,6 @@ namespace DLMS_Business
         public static int GetFilteredUsersCount(string filterkeyWord)
         {
             return UserData.GetFilteredUsersCount(filterkeyWord);
-        }
-
-        public static void ApplySorting(string sortingParameter)
-        {
-            UserData.IsSortingUsed = true;
-            UserData.SortingText = sortingParameter;
-            UserData.ApplySorting();
-        }
-
-        public static void DisableSorting()
-        {
-            UserData.IsSortingUsed = false;
         }
     }
 }

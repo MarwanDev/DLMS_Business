@@ -4,7 +4,7 @@ using DLMS_DataAccess;
 
 namespace DLMS_Business
 {
-    public class Person
+    public class Person : Business
     {
         public enum Mode { AddNew = 0, Update = 1 };
         public Mode CurrentMode = Mode.AddNew;
@@ -153,18 +153,6 @@ namespace DLMS_Business
         public static bool DoesPersonExist(int id)
         {
             return PersonData.DoesPersonExist(id);
-        }
-
-        public static void ApplySorting(string sortingParameter)
-        {
-            PersonData.IsSortingUsed = true;
-            PersonData.SortingText = sortingParameter;
-            PersonData.ApplySorting();
-        }
-
-        public static void DisableSorting()
-        {
-            PersonData.IsSortingUsed = false;
         }
 
         public static int GetAllPeopleCount()

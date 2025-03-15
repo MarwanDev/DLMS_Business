@@ -1,14 +1,9 @@
 ﻿using DLMS_DataAccess;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DLMS_Business
 {
-    public class TestType
+    public class TestType : Business
     {
         public int ID { set; get; }
         public decimal Fees { set; get; }
@@ -54,13 +49,6 @@ namespace DLMS_Business
         public static int GetAllTestTypesCount()
         {
             return TestTypeData.GetAllTestTypesCount();
-        }
-
-        public static void ApplySorting(string sortingParameter)
-        {
-            TestTypeData.IsSortingUsed = true;
-            TestTypeData.SortingText = sortingParameter;
-            TestTypeData.ApplySorting();
         }
 
         public static DataTable GetAllTestTypes()
