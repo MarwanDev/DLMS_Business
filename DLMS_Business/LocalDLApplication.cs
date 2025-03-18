@@ -78,5 +78,10 @@ namespace DLMS_Business
             }
             return false;
         }
+
+        public static int GetApplicationIdForSamePersonAndLicenceClass(int licenceClassId, int applicantPersonId)
+        {
+            return LocalDLApplicationData.GetApplicationIdForSamePersonAndLicenceClass(licenceClassId, applicantPersonId);
+        }
     }
 }
