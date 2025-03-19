@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using DLMS_DataAccess;
 
 namespace DLMS_Business
@@ -82,6 +83,11 @@ namespace DLMS_Business
         public static int GetApplicationIdForSamePersonAndLicenceClass(int licenceClassId, int applicantPersonId)
         {
             return LocalDLApplicationData.GetApplicationIdForSamePersonAndLicenceClass(licenceClassId, applicantPersonId);
+        }
+
+        public static DataTable GetAllLocalDLApplications()
+        {
+            return LocalDLApplicationData.GetAllLocalDLApplications();
         }
     }
 }
