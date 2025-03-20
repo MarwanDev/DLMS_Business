@@ -89,5 +89,11 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.GetAllLocalDLApplications();
         }
+
+        public static DataTable FilterLocalDLApplications(string filterMode, string filterkeyWord)
+        {
+            LocalDLApplicationData.CurrentFilter = filterMode;
+            return LocalDLApplicationData.GetFilteredLocalDLApplications(filterkeyWord);
+        }
     }
 }
