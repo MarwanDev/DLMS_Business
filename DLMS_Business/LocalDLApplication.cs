@@ -95,5 +95,15 @@ namespace DLMS_Business
             LocalDLApplicationData.CurrentFilter = filterMode;
             return LocalDLApplicationData.GetFilteredLocalDLApplications(filterkeyWord);
         }
+
+        public static int GetAllLocalDLApplicationsCount()
+        {
+            return LocalDLApplicationData.GetAllLocalDLApplicationsCount();
+        }
+
+        public static int GetFilteredLocalDLApplicationsCount(string filterkeyWord)
+        {
+            return LocalDLApplicationData.GetFilteredLocalDLApplicationsCount(filterkeyWord);
+        }
     }
 }
