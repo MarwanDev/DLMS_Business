@@ -105,5 +105,10 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.GetFilteredLocalDLApplicationsCount(filterkeyWord);
         }
+
+        public static bool CancelLocalDLApplication(int localDLApplicationId)
+        {
+            return LocalDLApplicationData.CancelLocalDLApplication(localDLApplicationId);
+        }
     }
 }
