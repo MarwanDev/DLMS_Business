@@ -17,6 +17,10 @@ namespace DLMS_Business
         public decimal PaidFees { set; get; }
         public int CreatedByUserID { set; get; }
         public int LicenceClassID { set; get; }
+        public string PersonFullName { set; get; }
+        public string ApplicationTypeTitle { set; get; }
+        public string CreatedByUserName { set; get; }
+        public string LicenceClassName { set; get; }
 
         public LocalDLApplication()
         {
@@ -29,12 +33,16 @@ namespace DLMS_Business
             this.PaidFees = 0;
             this.CreatedByUserID = -1;
             this.LicenceClassID = -1;
+            this.PersonFullName = "";
+            this.ApplicationTypeTitle = "";
+            this.CreatedByUserName = "";
+            this.LicenceClassName = "";
 
             CurrentMode = Mode.AddNew;
         }
 
         private LocalDLApplication(int id, int applicantPersonId, DateTime applicationDate, int applicationTypeId, int applicationStatus,
-            DateTime lastStatusDate, decimal paidFees, int createdByUserId, int licenceClassId)
+            DateTime lastStatusDate, decimal paidFees, int createdByUserId, int licenceClassId, string createdByUserName)
         {
             ID = id;
             ApplicantPersonID = applicantPersonId;
@@ -45,6 +53,22 @@ namespace DLMS_Business
             PaidFees = paidFees;
             CreatedByUserID = createdByUserId;
             LicenceClassID = licenceClassId;
+            CreatedByUserName = createdByUserName;
+
+            CurrentMode = Mode.Update;
+        }
+
+        private LocalDLApplication(int id, int applicantPersonId, DateTime applicationDate, int applicationStatus,
+            decimal paidFees, int licenceClassId, string createdByUserName)
+        {
+            ID = id;
+            ApplicantPersonID = applicantPersonId;
+            ApplicationDate = applicationDate;
+            ApplicationStatus = applicationStatus;
+            PaidFees = paidFees;
+            LicenceClassID = licenceClassId;
+            CreatedByUserName = createdByUserName;
+
             CurrentMode = Mode.Update;
         }
 
@@ -57,7 +81,7 @@ namespace DLMS_Business
 
         private bool UpdateLocalDLApplication()
         {
-            return true;
+            return LocalDLApplicationData.UpdateLocalDLApplication(ID, LicenceClassID);
         }
 
         public bool Save()
@@ -109,6 +133,21 @@ namespace DLMS_Business
         public static bool CancelLocalDLApplication(int localDLApplicationId)
         {
             return LocalDLApplicationData.CancelLocalDLApplication(localDLApplicationId);
+        }
+
+        public static LocalDLApplication Find(int id)
+        {
+            int applicantPersonId = -1;
+            byte applicationStatus = 0;
+            DateTime applicationDate = new DateTime();
+            decimal paidFees = 0;
+            string createdByUserName = "";
+            int licenceClassID = 0;
+            if (LocalDLApplicationData.GetLocalDLApplicationInfoById(id, ref applicantPersonId, ref applicationDate, ref applicationStatus,
+                ref paidFees, ref createdByUserName, ref licenceClassID))
+                return new LocalDLApplication(id, applicantPersonId, applicationDate, applicationStatus, paidFees, licenceClassID, createdByUserName);
+            else
+                return null;
         }
     }
 }
