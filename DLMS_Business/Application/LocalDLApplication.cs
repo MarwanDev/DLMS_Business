@@ -59,7 +59,7 @@ namespace DLMS_Business
         }
 
         private LocalDLApplication(int id, int applicantPersonId, DateTime applicationDate, int applicationStatus,
-            decimal paidFees, int licenceClassId, string createdByUserName)
+            decimal paidFees, int licenceClassId, string createdByUserName, string licenceClassName)
         {
             ID = id;
             ApplicantPersonID = applicantPersonId;
@@ -68,6 +68,7 @@ namespace DLMS_Business
             PaidFees = paidFees;
             LicenceClassID = licenceClassId;
             CreatedByUserName = createdByUserName;
+            LicenceClassName = licenceClassName;
 
             CurrentMode = Mode.Update;
         }
@@ -142,10 +143,12 @@ namespace DLMS_Business
             DateTime applicationDate = new DateTime();
             decimal paidFees = 0;
             string createdByUserName = "";
+            string licenceClassName = "";
             int licenceClassID = 0;
             if (LocalDLApplicationData.GetLocalDLApplicationInfoById(id, ref applicantPersonId, ref applicationDate, ref applicationStatus,
-                ref paidFees, ref createdByUserName, ref licenceClassID))
-                return new LocalDLApplication(id, applicantPersonId, applicationDate, applicationStatus, paidFees, licenceClassID, createdByUserName);
+                ref paidFees, ref createdByUserName, ref licenceClassID, ref licenceClassName))
+                return new LocalDLApplication(id, applicantPersonId, applicationDate, applicationStatus, paidFees, 
+                    licenceClassID, createdByUserName, licenceClassName);
             else
                 return null;
         }
