@@ -162,5 +162,15 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.GetApplicationStatusById(id);
         }
+
+        public static int GetApplicationId(int id)
+        {
+            return LocalDLApplicationData.GetApplicationId(id);
+        }
+
+        public static bool DeleteLocalDLApplication(int id)
+        {
+            return LocalDLApplicationData.DeleteLocalDLApplication(id);
+        }
     }
 }
