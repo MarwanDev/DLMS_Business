@@ -157,5 +157,10 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.GetPassedTestsCountById(id);
         }
+
+        public static byte GetApplicationStatusById(int id)
+        {
+            return LocalDLApplicationData.GetApplicationStatusById(id);
+        }
     }
 }
