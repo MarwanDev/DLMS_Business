@@ -152,5 +152,10 @@ namespace DLMS_Business
             else
                 return null;
         }
+
+        public static int GetPassedTestsCount(int id)
+        {
+            return LocalDLApplicationData.GetPassedTestsCountById(id);
+        }
     }
 }

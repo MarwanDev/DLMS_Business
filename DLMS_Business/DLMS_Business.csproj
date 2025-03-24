@@ -48,7 +48,7 @@
     <Compile Include="Application\LocalDLApplication.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestType.cs" />
+    <Compile Include="Test\TestType.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
