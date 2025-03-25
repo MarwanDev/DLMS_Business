@@ -1,0 +1,80 @@
+﻿using DLMS_DataAccess;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DLMS_Business
+{
+    public class TestAppointment : Business
+    {
+        public enum Mode { AddNew = 0, Update = 1 };
+        public Mode CurrentMode = Mode.AddNew;
+
+        public int ID { get; set; }
+        public int TestTypeID { get; set; }
+        public int LocalDLApplicationID { get; set; }
+        public DateTime AppointmentDate { get; set; }
+        public decimal PaidFees { get; set; }
+        public int CreatedByUserID { get; set; }
+        public bool IsLocked { get; set; }
+
+        public TestAppointment()
+        {
+            this.ID = -1;
+            this.CreatedByUserID = -1;
+            this.IsLocked = true;
+            this.TestTypeID = 0;
+            this.LocalDLApplicationID = 0;
+            this.AppointmentDate = new DateTime();
+            this.PaidFees = 0;
+
+            CurrentMode = Mode.AddNew;
+        }
+
+        private TestAppointment(int iD, int testTypeID, int localDLApplicationID, DateTime appointmentDate, decimal paidFees, int createdByUserID, bool isLocked)
+        {
+            ID = iD;
+            TestTypeID = testTypeID;
+            LocalDLApplicationID = localDLApplicationID;
+            AppointmentDate = appointmentDate;
+            PaidFees = paidFees;
+            CreatedByUserID = createdByUserID;
+            IsLocked = isLocked;
+
+            CurrentMode = Mode.Update;
+        }
+
+        private bool AddNewTestAppointment()
+        {
+            this.ID = TestAppointmentData.AddNewTestAppointment(TestTypeID ,LocalDLApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
+            return (this.ID != -1);
+        }
+
+        private bool UpdateTestAppointment()
+        {
+            return false;
+        }
+
+        public bool Save()
+        {
+            switch (CurrentMode)
+            {
+                case Mode.AddNew:
+                    if (AddNewTestAppointment())
+                    {
+                        CurrentMode = Mode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                case Mode.Update:
+                    return UpdateTestAppointment();
+            }
+            return false;
+        }
+    }
+}
