@@ -217,5 +217,10 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.DeleteLocalDLApplication(id);
         }
+
+        public static int GetPersonApplicantId(int id)
+        {
+            return LocalDLApplicationData.GetPersonApplicantId(id);
+        }
     }
 }
