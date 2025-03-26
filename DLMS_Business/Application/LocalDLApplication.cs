@@ -21,6 +21,9 @@ namespace DLMS_Business
         public string ApplicationTypeTitle { set; get; }
         public string CreatedByUserName { set; get; }
         public string LicenceClassName { set; get; }
+        public string StatusText { set; get; }
+        public int PassedTests { set; get; }
+        public int ApplicationID { set; get; }
 
         public LocalDLApplication()
         {
@@ -69,6 +72,26 @@ namespace DLMS_Business
             LicenceClassID = licenceClassId;
             CreatedByUserName = createdByUserName;
             LicenceClassName = licenceClassName;
+
+            CurrentMode = Mode.Update;
+        }
+
+        private LocalDLApplication(int id, string className, string fullName,
+            DateTime applicationDate, int passedTests, string statusText, int applicationId,
+            decimal paidFees, string applicationTypeTitle, DateTime lastStatusDate, string userName)
+        {
+            ID = id;
+            LicenceClassName = className;
+            PersonFullName = fullName;
+            ApplicationDate = applicationDate;
+            ApplicationDate = applicationDate;
+            PassedTests = passedTests;
+            PaidFees = paidFees;
+            StatusText = statusText;
+            ApplicationID = applicationId;
+            ApplicationTypeTitle = applicationTypeTitle;
+            LastStatusDate = lastStatusDate;
+            CreatedByUserName = userName;
 
             CurrentMode = Mode.Update;
         }
@@ -147,8 +170,30 @@ namespace DLMS_Business
             int licenceClassID = 0;
             if (LocalDLApplicationData.GetLocalDLApplicationInfoById(id, ref applicantPersonId, ref applicationDate, ref applicationStatus,
                 ref paidFees, ref createdByUserName, ref licenceClassID, ref licenceClassName))
-                return new LocalDLApplication(id, applicantPersonId, applicationDate, applicationStatus, paidFees, 
+                return new LocalDLApplication(id, applicantPersonId, applicationDate, applicationStatus, paidFees,
                     licenceClassID, createdByUserName, licenceClassName);
+            else
+                return null;
+        }
+
+        public static LocalDLApplication FindInDetails(int id)
+        {
+            string className = "";
+            string fullName = "";
+            DateTime applicationDate = new DateTime();
+            int passedTests = -1;
+            string statusText = "";
+            int applicationId = -1;
+            decimal paidFees = -1;
+            string applicationTypeTitle = "";
+            DateTime lastStatusDate = new DateTime();
+            string userName = "";
+            if (LocalDLApplicationData.GetLocalDLApplicationMoreDetailsById(id, ref className, ref fullName,
+                ref applicationDate, ref passedTests, ref statusText, ref applicationId,
+                ref paidFees, ref applicationTypeTitle, ref lastStatusDate, ref userName))
+                return new LocalDLApplication(id, className, fullName,
+                    applicationDate, passedTests, statusText, applicationId,
+                    paidFees, applicationTypeTitle, lastStatusDate, userName);
             else
                 return null;
         }
