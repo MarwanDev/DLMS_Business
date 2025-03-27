@@ -1,9 +1,6 @@
 ﻿using DLMS_DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace DLMS_Business
 {
@@ -75,6 +72,11 @@ namespace DLMS_Business
                     return UpdateTestAppointment();
             }
             return false;
+        }
+
+        public static DataTable GetAllTestAppointmentsForLocalDLApplication(int id)
+        {
+            return TestAppointmentData.GetAllTestAppointmentsForLocalDLApplication(id);
         }
     }
 }
