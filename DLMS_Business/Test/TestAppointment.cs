@@ -78,5 +78,10 @@ namespace DLMS_Business
         {
             return TestAppointmentData.GetAllTestAppointmentsForLocalDLApplication(id);
         }
+
+        public static int GetAllTestAppointmentsCountForLocalDLApplication(int id)
+        {
+            return TestAppointmentData.GetAllTestAppointmentsCountForLocalDLApplication(id);
+        }
     }
 }
