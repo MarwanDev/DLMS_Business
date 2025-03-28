@@ -83,5 +83,15 @@ namespace DLMS_Business
         {
             return TestAppointmentData.GetAllTestAppointmentsCountForLocalDLApplication(id);
         }
+
+        public static bool DoesActiveTestAppointmentExist(int id)
+        {
+            return TestAppointmentData.DoesActiveTestAppointmentExist(id);
+        }
+
+        public static bool IsTestPassed(int testTypeId, int localDLApplication)
+        {
+            return TestAppointmentData.IsTestPassed(testTypeId, localDLApplication);
+        }
     }
 }
