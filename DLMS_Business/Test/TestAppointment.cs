@@ -45,13 +45,13 @@ namespace DLMS_Business
 
         private bool AddNewTestAppointment()
         {
-            this.ID = TestAppointmentData.AddNewTestAppointment(TestTypeID ,LocalDLApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
+            this.ID = TestAppointmentData.AddNewTestAppointment(TestTypeID, LocalDLApplicationID, AppointmentDate, PaidFees, CreatedByUserID, IsLocked);
             return (this.ID != -1);
         }
 
         private bool UpdateTestAppointment()
         {
-            return false;
+            return TestAppointmentData.UpdateTestAppointment(ID, AppointmentDate);
         }
 
         public bool Save()
@@ -97,6 +97,22 @@ namespace DLMS_Business
         public static int GetNumberOfTrials(int testTypeId, int localDLApplicationid)
         {
             return TestAppointmentData.GetNumberOfTrials(testTypeId, localDLApplicationid);
+        }
+
+        public static TestAppointment Find(int id)
+        {
+            int testTypeId = -1, localDLApplicationId = -1, createdByUserId = -1;
+            DateTime appointmentDate = new DateTime();
+            decimal paidFees = 0;
+            bool isLocked = false;
+            if (TestAppointmentData.GetTestAppointmentById(id, ref testTypeId, ref localDLApplicationId, ref appointmentDate,
+                ref paidFees, ref createdByUserId, ref isLocked))
+            {
+                return new TestAppointment(id, testTypeId, localDLApplicationId, appointmentDate,
+                    paidFees, createdByUserId, isLocked);
+            }
+            else
+                return null;
         }
     }
 }
