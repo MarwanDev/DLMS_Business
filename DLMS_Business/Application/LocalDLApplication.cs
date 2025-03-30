@@ -222,5 +222,10 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.GetPersonApplicantId(id);
         }
+
+        public static bool CompleteLocalDLApplication(int id)
+        {
+            return LocalDLApplicationData.CompleteLocalDLApplication(id);
+        }
     }
 }
