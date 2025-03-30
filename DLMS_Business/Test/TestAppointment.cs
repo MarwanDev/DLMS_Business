@@ -74,9 +74,9 @@ namespace DLMS_Business
             return false;
         }
 
-        public static DataTable GetAllTestAppointmentsForLocalDLApplication(int id)
+        public static DataTable GetAllTestAppointmentsForLocalDLApplication(int id, int testTypeId)
         {
-            return TestAppointmentData.GetAllTestAppointmentsForLocalDLApplication(id);
+            return TestAppointmentData.GetAllTestAppointmentsForLocalDLApplication(id, testTypeId);
         }
 
         public static int GetAllTestAppointmentsCountForLocalDLApplication(int id)
@@ -118,6 +118,11 @@ namespace DLMS_Business
         public static bool LockTestAppointment(int testAppointmentId)
         {
             return TestAppointmentData.LockTestAppointment(testAppointmentId);
+        }
+
+        public static bool DoesLockedTestAppointmentExist(int localDLApplicationId, int testTypeId)
+        {
+            return TestAppointmentData.DoesLockedTestAppointmentExist(localDLApplicationId, testTypeId);
         }
     }
 }
