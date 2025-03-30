@@ -223,9 +223,9 @@ namespace DLMS_Business
             return LocalDLApplicationData.GetPersonApplicantId(id);
         }
 
-        public static bool CompleteLocalDLApplication(int id)
+        public static bool ChangeApplicationStatus(int id, byte status)
         {
-            return LocalDLApplicationData.CompleteLocalDLApplication(id);
+            return LocalDLApplicationData.ChangeApplicationStatus(id, status);
         }
     }
 }
