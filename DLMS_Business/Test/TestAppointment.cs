@@ -114,5 +114,10 @@ namespace DLMS_Business
             else
                 return null;
         }
+
+        public static bool LockTestAppointment(int testAppointmentId)
+        {
+            return TestAppointmentData.LockTestAppointment(testAppointmentId);
+        }
     }
 }
