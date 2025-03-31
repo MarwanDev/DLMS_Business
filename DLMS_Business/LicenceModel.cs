@@ -109,5 +109,15 @@ namespace DLMS_Business
         {
             return LicenceData.GetAllLocalLicencePerPersonCount(personId);
         }
+
+        public static DataTable GetAllInternationalLicencesPerPerson(int personId)
+        {
+            return LicenceData.GetAllInternationalLicencesPerPerson(personId);
+        }
+
+        public static int GetAllInternationalLicencePerPersonCount(int personId)
+        {
+            return LicenceData.GetAllInternationalLicencePerPersonCount(personId);
+        }
     }
 }
