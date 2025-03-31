@@ -227,5 +227,10 @@ namespace DLMS_Business
         {
             return LocalDLApplicationData.ChangeApplicationStatus(id, status);
         }
+
+        public static int GetLicenceClassId(int id)
+        {
+            return LocalDLApplicationData.GetLicenceClassId(id);
+        }
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace DLMS_Business
 {
-    public class Licence
+    public class LicenceModel
     {
         public int ID { get; set; }
         public int ApplicationId { get; set; }
@@ -17,7 +17,7 @@ namespace DLMS_Business
         public decimal PaidFees { get; set; }
         public byte IssueReason { get; set; }
 
-        public Licence()
+        public LicenceModel()
         {
             this.ID = -1;
             this.ApplicationId = -1;
