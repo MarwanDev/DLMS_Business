@@ -1,5 +1,6 @@
 ﻿using DLMS_DataAccess.Licence;
 using System;
+using System.Data;
 
 namespace DLMS_Business
 {
@@ -97,6 +98,16 @@ namespace DLMS_Business
                     isActive, issueReason, fullname, className, nationalNo, gender, dateOfBirth, imagePath);
             else
                 return null;
+        }
+
+        public static DataTable GetAllLocalLicencesPerPerson(int personId)
+        {
+            return LicenceData.GetAllLocalLicencesPerPerson(personId);
+        }
+
+        public static int GetAllLocalLicencePerPersonCount(int personId)
+        {
+            return LicenceData.GetAllLocalLicencePerPersonCount(personId);
         }
     }
 }
