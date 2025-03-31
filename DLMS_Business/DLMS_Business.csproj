@@ -45,6 +45,8 @@
     <Compile Include="Application\ApplicationType.cs" />
     <Compile Include="Business.cs" />
     <Compile Include="Country.cs" />
+    <Compile Include="Driver.cs" />
+    <Compile Include="Licence.cs" />
     <Compile Include="LicenceClass.cs" />
     <Compile Include="Application\LocalDLApplication.cs" />
     <Compile Include="Person.cs" />
