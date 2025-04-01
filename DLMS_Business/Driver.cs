@@ -1,4 +1,5 @@
-﻿using DLMS_DataAccess.Person;
+﻿using DLMS_DataAccess;
+using DLMS_DataAccess.Person;
 using System;
 using System.Data;
 
@@ -25,6 +26,12 @@ namespace DLMS_Business
             this.PersonId = personId;
             this.CreatedByUserId = createdByUserId;
             this.CreatedDate = createdDate;
+        }
+
+        public static DataTable FilterDrivers(string filterMode, string filterkeyWord)
+        {
+            DriverData.CurrentFilter = filterMode;
+            return DriverData.GetFilteredDrivers(filterkeyWord);
         }
 
         public bool AddNewDriver()
