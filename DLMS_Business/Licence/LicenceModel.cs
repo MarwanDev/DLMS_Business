@@ -119,5 +119,15 @@ namespace DLMS_Business
         {
             return LicenceData.GetAllInternationalLicencePerPersonCount(personId);
         }
+
+        public static bool DoesInternationalLicenceExistWithLocalLicenceId(int licenceId)
+        {
+            return LicenceData.DoesInternationalLicenceExistWithLocalLicenceId(licenceId);
+        }
+
+        public static int GetLicencClassId(int licenceId)
+        {
+            return LicenceData.GetLicencClassId(licenceId);
+        }
     }
 }

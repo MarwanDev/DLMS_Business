@@ -233,9 +233,9 @@ namespace DLMS_Business
             return LocalDLApplicationData.GetLicenceClassId(id);
         }
 
-        public static bool DoesLicenceExist(int id)
+        public static bool DoesLicenceExistForLocalDLApplication(int id)
         {
-            return LocalDLApplicationData.DoesLicenceExist(id);
+            return LocalDLApplicationData.DoesLicenceExistForLocalDLApplication(id);
         }
     }
 }
