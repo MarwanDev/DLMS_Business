@@ -1,5 +1,6 @@
 ﻿using DLMS_DataAccess.Person;
 using System;
+using System.Data;
 
 namespace DLMS_Business
 {
@@ -18,10 +19,52 @@ namespace DLMS_Business
             this.CreatedDate = new DateTime();
         }
 
+        private Driver(int id, int personId, int createdByUserId, DateTime createdDate)
+        {
+            this.ID = id;
+            this.PersonId = personId;
+            this.CreatedByUserId = createdByUserId;
+            this.CreatedDate = createdDate;
+        }
+
         public bool AddNewDriver()
         {
             this.ID = DriverData.AddNewDriver(PersonId, CreatedByUserId, CreatedDate);
             return this.ID != -1;
+        }
+
+        public static DataTable GetAllDrivers()
+        {
+            return DriverData.GetAllDrivers();
+        }
+
+        public static int GetFilteredDriversCount(string filterkeyWord)
+        {
+            return DriverData.GetFilteredDriversCount(filterkeyWord);
+        }
+
+        public static int GetAllDriversCount()
+        {
+            return DriverData.GetAllDriversCount();
+        }
+
+        public static bool DoesDriverExistWithSamePersonId(int personId)
+        {
+            return DriverData.DoesDriverExistWithSamePersonId(personId);
+        }
+
+        public static int GetDriversIdByPersonId(int personId)
+        {
+            return DriverData.GetDriversIdByPersonId(personId);
+        }
+
+        public static Driver Find(int id)
+        {
+            int personId = -1, createdByUserId = -1;
+            DateTime createdDate = new DateTime();
+            if (DriverData.GetDriverDataById(id, ref personId, ref createdByUserId, ref createdDate))
+                return new Driver(id, personId, createdByUserId, createdDate);
+            else return null;
         }
     }
 }
