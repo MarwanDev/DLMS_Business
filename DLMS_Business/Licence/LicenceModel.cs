@@ -23,6 +23,7 @@ namespace DLMS_Business
         public string ImagePath { get; set; }
         public decimal PaidFees { get; set; }
         public byte IssueReason { get; set; }
+        public int LocalLicenceId { get; set; }
 
         public LicenceModel()
         {
@@ -37,6 +38,7 @@ namespace DLMS_Business
             this.Notes = "";
             this.PaidFees = 0;
             this.IssueReason = 0;
+            this.LocalLicenceId = -1;
         }
 
         private LicenceModel(int id, int driverId, DateTime issueDate, DateTime expirationDate,
@@ -63,6 +65,13 @@ namespace DLMS_Business
         {
             this.ID = LicenceData.AddNewLicence(ApplicationId, DriverId, LicenceClassId, IssueDate, IsActive,
                 Notes, ExpirationDate, PaidFees, CreatedByUserId, IssueReason);
+            return this.ID != -1;
+        }
+
+        public bool AddNewInternationalLicence()
+        {
+            this.ID = LicenceData.AddNewInternationalLicence(ApplicationId, DriverId, LocalLicenceId, IssueDate, IsActive,
+                ExpirationDate, CreatedByUserId);
             return this.ID != -1;
         }
 
