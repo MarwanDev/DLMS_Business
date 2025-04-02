@@ -62,6 +62,24 @@ namespace DLMS_Business
             this.ImagePath = imagePath;
         }
 
+        private LicenceModel(int id, int localLicenceId, string nationalNo,
+            string gender, DateTime issueDate, int applicationId, bool isActive,
+            DateTime dateOfBirth, int driverId, DateTime expirationDate, string imagePath, string fullName)
+        {
+            this.ID = id;
+            this.DriverId = driverId;
+            this.LocalLicenceId = localLicenceId;
+            this.ApplicationId = applicationId;
+            this.IssueDate = issueDate;
+            this.ExpirationDate = expirationDate;
+            this.IsActive = isActive;
+            this.NationalNo = nationalNo;
+            this.Gender = gender;
+            this.DateOfBirth = dateOfBirth;
+            this.ImagePath = imagePath;
+            this.FullName = fullName;
+        }
+
         public bool AddNewLicence()
         {
             this.ID = LicenceData.AddNewLicence(ApplicationId, DriverId, LicenceClassId, IssueDate, IsActive,
@@ -89,6 +107,21 @@ namespace DLMS_Business
                 ref className, ref nationalNo, ref gender, ref dateOfBirth, ref imagePath))
                 return new LicenceModel(id, driverId, issueDate, expirationDate, notes, paidFees,
                     isActive, issueReason, fullname, className, nationalNo, gender, dateOfBirth, imagePath);
+            else
+                return null;
+        }
+
+        public static LicenceModel FindInternationalLicence(int id)
+        {
+            int driverId = -1, localLicenceId = -1, applicationId = -1;
+            DateTime issueDate = new DateTime(), expirationDate = new DateTime(), dateOfBirth = new DateTime();
+            bool isActive = false;
+            string fullName = "", gender = "", nationalNo = "", imagePath = "";
+            if (LicenceData.GetInternationalLicenceDataById(id, ref localLicenceId, ref nationalNo, ref gender,
+                ref issueDate, ref applicationId, ref isActive, ref dateOfBirth, ref driverId, 
+                ref expirationDate, ref imagePath, ref fullName))
+                return new LicenceModel(id, localLicenceId, nationalNo, gender,
+                issueDate, applicationId, isActive, dateOfBirth, driverId, expirationDate, imagePath, fullName);
             else
                 return null;
         }
