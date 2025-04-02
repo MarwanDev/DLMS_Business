@@ -138,5 +138,10 @@ namespace DLMS_Business
         {
             return LicenceData.GetLicencClassId(licenceId);
         }
+
+        public static DataTable GetAllInternationalLicences()
+        {
+            return LicenceData.GetAllInternationalLicences();
+        }
     }
 }
