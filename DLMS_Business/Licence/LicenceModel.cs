@@ -1,4 +1,5 @@
-﻿using DLMS_DataAccess.Licence;
+﻿using DLMS_DataAccess;
+using DLMS_DataAccess.Licence;
 using System;
 using System.Data;
 
@@ -134,14 +135,30 @@ namespace DLMS_Business
             return LicenceData.DoesInternationalLicenceExistWithLocalLicenceId(licenceId);
         }
 
-        public static int GetLicencClassId(int licenceId)
+        public static int GetLicenceClassId(int licenceId)
         {
-            return LicenceData.GetLicencClassId(licenceId);
+            return LicenceData.GetLicenceClassId(licenceId);
         }
 
         public static DataTable GetAllInternationalLicences()
         {
             return LicenceData.GetAllInternationalLicences();
+        }
+
+        public static int GetAllInternationalLicenceCount()
+        {
+            return LicenceData.GetAllInternationalLicenceCount();
+        }
+
+        public static DataTable FilterInternationalLicences(string filterMode, string filterkeyWord)
+        {
+            LicenceData.CurrentFilter = filterMode;
+            return LicenceData.GetFilteredInternationalLicences(filterkeyWord);
+        }
+
+        public static int GetFilteredInternationalLicencesCount(string filterkeyWord)
+        {
+            return LicenceData.GetFilteredInternationalLicenceCount(filterkeyWord);
         }
     }
 }
