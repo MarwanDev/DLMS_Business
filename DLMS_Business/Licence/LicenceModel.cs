@@ -120,7 +120,22 @@ namespace DLMS_Business
             CreatedByUserId = createdByUserId;
             ApplicationId = applicationId;
             Notes = notes;
-            IssueReason = 2;
+            LicenceClassId = GetLicenceClassId(ID);
+            IsActive = true;
+            if (AddNewLicence())
+            {
+                DeactivateLicence(oldId);
+                return ID;
+            }
+            return -1;
+        }
+
+        public int ReplaceLicence(int createdByUserId, int applicationId, byte issueReason)
+        {
+            int oldId = ID;
+            CreatedByUserId = createdByUserId;
+            ApplicationId = applicationId;
+            IssueReason = issueReason;
             LicenceClassId = GetLicenceClassId(ID);
             IsActive = true;
             if (AddNewLicence())
