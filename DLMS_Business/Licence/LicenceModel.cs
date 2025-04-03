@@ -111,6 +111,31 @@ namespace DLMS_Business
                 return null;
         }
 
+        public int RenewLicence(int createdByUserId, int applicationId, string notes)
+        {
+            int oldId = ID;
+            IssueDate = DateTime.Now;
+            ExpirationDate = DateTime.Now.AddYears(10);
+            IssueReason = 2;
+            CreatedByUserId = createdByUserId;
+            ApplicationId = applicationId;
+            Notes = notes;
+            IssueReason = 2;
+            LicenceClassId = GetLicenceClassId(ID);
+            IsActive = true;
+            if (AddNewLicence())
+            {
+                DeactivateLicence(oldId);
+                return ID;
+            }
+            return -1;
+        }
+
+        public static bool DeactivateLicence(int id)
+        {
+            return LicenceData.DeactivateLicence(id);
+        }
+
         public static LicenceModel FindInternationalLicence(int id)
         {
             int driverId = -1, localLicenceId = -1, applicationId = -1;
@@ -118,7 +143,7 @@ namespace DLMS_Business
             bool isActive = false;
             string fullName = "", gender = "", nationalNo = "", imagePath = "";
             if (LicenceData.GetInternationalLicenceDataById(id, ref localLicenceId, ref nationalNo, ref gender,
-                ref issueDate, ref applicationId, ref isActive, ref dateOfBirth, ref driverId, 
+                ref issueDate, ref applicationId, ref isActive, ref dateOfBirth, ref driverId,
                 ref expirationDate, ref imagePath, ref fullName))
                 return new LicenceModel(id, localLicenceId, nationalNo, gender,
                 issueDate, applicationId, isActive, dateOfBirth, driverId, expirationDate, imagePath, fullName);
