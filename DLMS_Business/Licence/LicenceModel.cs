@@ -12,10 +12,13 @@ namespace DLMS_Business
         public int DriverId { get; set; }
         public int LicenceClassId { get; set; }
         public int CreatedByUserId { get; set; }
+        public int DetainedByUserId { get; set; }
         public DateTime IssueDate { get; set; }
         public DateTime ExpirationDate { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public DateTime DetainDate { get; set; }
         public bool IsActive { get; set; }
+        public bool IsReleased { get; set; }
         public string Notes { get; set; }
         public string FullName { get; set; }
         public string ClassName { get; set; }
@@ -23,8 +26,10 @@ namespace DLMS_Business
         public string Gender { get; set; }
         public string ImagePath { get; set; }
         public decimal PaidFees { get; set; }
+        public decimal FineFees { get; set; }
         public byte IssueReason { get; set; }
         public int LocalLicenceId { get; set; }
+        public int DetainId { get; set; }
 
         public LicenceModel()
         {
@@ -232,6 +237,12 @@ namespace DLMS_Business
         public static int GetFilteredInternationalLicencesCount(string filterkeyWord)
         {
             return LicenceData.GetFilteredInternationalLicenceCount(filterkeyWord);
+        }
+
+        public bool DetainLicecne()
+        {
+            this.DetainId = LicenceData.DetainLicence(ID, DetainDate, FineFees, DetainedByUserId, IsReleased);
+            return this.DetainId != -1;
         }
     }
 }
