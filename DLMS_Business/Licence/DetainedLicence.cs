@@ -1,6 +1,8 @@
-﻿using DLMS_DataAccess.Licence;
+﻿using DLMS_DataAccess;
+using DLMS_DataAccess.Licence;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -80,6 +82,27 @@ namespace DLMS_Business.Licence
         public bool ReleaseDetainedLicence()
         {
             return DetainedLicenceData.ReleaseDetainedLicence(ID, ReleaseDate, ReleasedByUserId, ReleaseApplicationId);
+        }
+
+        public static DataTable GetAllDetainedLicences()
+        {
+            return DetainedLicenceData.GetAllDetainedLicences();
+        }
+
+        public static int GetAllDetainedLicencesCount()
+        {
+            return DetainedLicenceData.GetAllDetainedLicencesCount();
+        }
+
+        public static DataTable FilterDetainedLicences(string filterMode, string filterkeyWord)
+        {
+            DetainedLicenceData.CurrentFilter = filterMode;
+            return DetainedLicenceData.GetFilteredDetainedLicences(filterkeyWord);
+        }
+
+        public static int GetFilteredDetainedLicencesCount(string filterkeyWord)
+        {
+            return DetainedLicenceData.GetFilteredDetainedLicencesCount(filterkeyWord);
         }
     }
 }
