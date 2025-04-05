@@ -104,5 +104,10 @@ namespace DLMS_Business.Licence
         {
             return DetainedLicenceData.GetFilteredDetainedLicencesCount(filterkeyWord);
         }
+
+        public static int GetPersonIdByDetainLicenceId(int detainId)
+        {
+            return DetainedLicenceData.GetPersonIdByDetainLicenceId(detainId);
+        }
     }
 }
